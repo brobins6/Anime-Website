@@ -1,0 +1,295 @@
+<html>
+<head>
+	<title>Main Project</title>
+	<style>
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+
+.right {
+	float: right;
+	margin: 7%;
+	top: 15px;
+	text-align: left;
+}
+p {
+	text-align: left;
+}
+</style>
+</head>
+<body background="anime.jpg">
+	<center>
+	<h1 style="color:white" >For the Weebs</h1>
+	<button class="show1" >Heading</button> | <button class="show2" onclick="top2()">Top2</button> | <button class="show3" onclick="random()" >Random</button>
+	| <button class="show5" onclick="added()">Added</button>
+	</center>
+	<div class="right">
+	<h2 style="color:white">Information performed by button</h2>
+	<p style="color:white" class="intro">Bennett Robinson</p><p style="color:white" class="intro">CS 3910</p><p style="color:white" class="intro">HW13-Main project</p>
+	
+	<p style="color:white" id="added" class="added">Name: </p>
+	<p style="color:white" id="name1" class="added"></p><p style="color:white" class="added">Season: </p><p style="color:white" id="seasons1" class="added">
+	<p style="color:white" class="added">Episodes: </p><p style="color:white" id="episodes1" class="added"></p><p style="color:white" class="added">Rank: </p>
+	<p style="color:white" id="rank1" class="added"></p><p style="color:white" class="added">Genre: </p><p style="color:white" id="genre1" class="added">
+	</p><p style="color:white" class="added">Summary: </p><p style="color:white" id="sentence1" class="added"></p><img id="picture" class="added" />
+	
+	<h3 style="color:white" class="top2">1st place</h3>
+	<p style="color:white" class="top2">Name</p><p style="color:white" class="top2" id="number1"></p><img id="picture1" class="top2" />
+	<h3 style="color:white" class="top2">2nd place</h3>
+	<p style="color:white" class="top2">Name</p><p style="color:white" class="top2" id="number2"></p><img id="picture2" class="top2" />
+	
+	<p style="color:white"  class="random">Name: </p>
+	<p style="color:white" id="randomname" class="random"></p><p style="color:white" class="random">Season: </p><p style="color:white" id="randomseason" class="random">
+	<p style="color:white" class="random">Episodes: </p><p style="color:white" id="randomepisode" class="random"></p><p style="color:white" class="random">Rank: </p>
+	<p style="color:white" id="randomrank" class="random"></p><p style="color:white" class="random">Genre: </p><p style="color:white" id="randomgenre" class="random">
+	</p><p style="color:white" class="random">Summary: </p><p style="color:white" id="randomsummary" class="random"></p><img id="randomurl" class="random" />
+	</div>
+	
+	<h3>Here you can add anime to the over all list of Anime</h3> 
+	<p> Note: The genre button is the top genre in the show</p>
+
+<ul>
+
+    <!--Dropdown for Seasons-->
+  <li><select id="dropdown">
+    <option href="javascript:void(0)" class="dropbtn" onclick="dropSeasons()">Seasons</option>
+    <div class="dropdown-content" id="animeSeasons">
+      <option value=1>1</option>
+      <option value=2>2</option>
+      <option value=3>3</option>
+    </div>
+  </select></li>
+  <!--Dropdown for Episodes-->
+  <li><select id="dropdown2">
+    <option href="javascript:void(0)" class="dropbtn" onclick="dropEpisodes()">Episodes</option>
+    <div class="dropdown-content" id="animeEpisodes">
+      <option value=12>12</option>
+      <option value=24>24</option>
+      <option value=26>26</option>
+      <option value=50>50</option>
+    </div>
+  </select></li>
+
+    <!--Dropdown for Rank-->
+   <li><select id="dropdown3">
+		<option href="javascript:void(0)" class="dropbtn" onclick="dropRank()">Rank</option>
+		<div class="dropdown-content" id="animeRank">
+			<option value=1>1</option>
+			<option value=2>2</option>
+			<option value=3>3</option>
+			<option value=4>4</option>
+			<option value=5>5</option>
+			<option value=6>6</option>
+			<option value=7>7</option>
+			<option value=8>8</option>
+			<option value=9>9</option>
+			<option value=10>10</option>
+		</div>
+	</select></li>
+	
+	<!-- Dropdown for genre-->
+	<li><select id="dropdown4">
+		<option href="javascript:void(0)" class="dropbtn" onclick="dropGenre()">Genre</option>
+		<div class="dropdown-content" id="animeGenre">
+			<option value="action">Action</option>
+			<option value="romance">Romance</option>
+			<option value="comedy">Comedy</option>
+			<option value="fantasy">Fantasy</option>
+			<option value="sliceOfLife">Slice of Life</option>
+			<option value="sci-fi">Sci-FI</option>
+		</div>
+	</select></li>
+</ul>
+<p>Name: <input type="text" id="nameChoice" size = "20"></p>
+<p>Season: <input readonly="text" id="seasonChoice" size = "20"></p>
+<p>Episodes: <input readonly="text" id="episodeChoice" size = "20"></p>
+<p>Rank: <input readonly="text" id="rankChoice" size = "20"></p>
+<p>genre: <input readonly="text" id="genreChoice" size = "20"></p>
+<p>Sentence summary: <input type="text" id="sentenceChoice" size = "20"></p>
+<p>picture Url: <input type="text" id="urlChoice" size = "20"></p>
+
+<button class="pure-button button-success" onclick="addAnime()">Add</button>
+
+<script>
+   // this makes the read-only text boxes recieve what option the user clicked.
+    var mytextbox = document.getElementById('seasonChoice');
+    var mydropdown = document.getElementById('dropdown');
+
+     mydropdown.onchange = function(){
+          mytextbox.value = mytextbox.value  + this.value;
+}
+
+    // this makes the read-only text boxes recieve what option the user clicked.
+var mytextbox2 = document.getElementById('episodeChoice');
+    var mydropdown2 = document.getElementById('dropdown2');
+
+     mydropdown2.onchange = function(){
+          mytextbox2.value = mytextbox2.value  + this.value;
+}
+
+    // this makes the read-only text boxes recieve what option the user clicked.
+var mytextbox3 = document.getElementById('rankChoice');
+    var mydropdown3 = document.getElementById('dropdown3');
+
+     mydropdown3.onchange = function(){
+          mytextbox3.value = mytextbox3.value  + this.value;
+}
+
+var mytextbox4 = document.getElementById('genreChoice');
+var mydropdown4 = document.getElementById('dropdown4');
+	
+	mydropdown4.onchange = function(){
+		mytextbox4.value = mytextbox4.value + this.value;
+	}
+// This ensures the buttons will interact with the read-only textboxes.
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    for (var d = 0; d < dropdowns.length; d++) {
+      var openDropdown = dropdowns[d];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+        
+      }
+    }
+  }
+}
+var animeCollection = new Array();
+animeCollection = [{name:"Clannad", season:2,episode: 50,rank: 10,genre: "romance",summary: "its a really sad anime",url:"https://myanimelist.cdn-dena.com/images/anime/13/8498.jpg"},
+{name:"Ao no Exorcist",season: 1,episode: 24,rank: 9,genre:"fantasy",summary: "the son of satan",url:"https://myanimelist.cdn-dena.com/images/anime/10/75195l.jpg"},
+{name:"Aldnoah.Zero",season: 2,episode: 24,rank: 8, genre: "sci-fi",summary: "humans vrs martians in mechs",url: "https://myanimelist.cdn-dena.com/images/anime/7/60263.jpg"},
+{name:"Wolf's rain", season:1,episode: 26,rank: 1,genre:"fantasy",summary: "a really shitty werewolf anime",url: "https://myanimelist.cdn-dena.com/images/anime/5/59403.jpg"},
+{name:"Hellsing Ultimate",season: 1,episode: 10,rank: 10, genre:"action",summary: "a badass vampire",url: "https://images-na.ssl-images-amazon.com/images/I/61DykDRtVoL._AC_SL230_.jpg"},
+{name:"Ergo Proxy",season: 1,episode:24,rank: 9,genre: "action",summary: "a destopia with humans and robots",url: "https://upload.wikimedia.org/wikipedia/en/0/07/Ergo_Proxy_Set_1_cover.jpg"},
+{name:"Fate/stay night",season: 1,episode: 24,rank: 5,genre: "fantasy",summary: "a really naive main character with a poor sense of justice",url: "https://myanimelist.cdn-dena.com/images/anime/4/30327.jpg"},
+{name:"narutaru",season: 1,episode: 12,rank: 3,genre: "sci-fi",summary: "i dont really know what this anime is",url: "https://upload.wikimedia.org/wikipedia/en/thumb/8/81/Narutaru_manga.jpg/200px-Narutaru_manga.jpg"},
+{name:"pupa",season: 1,episode: 12,rank: 3,genre: "fantasy",summary:"a little sister eating her older brother to survive", url:"https://myanimelist.cdn-dena.com/images/anime/2/54395.jpg"},
+{name:"school days",season: 1,episode: 12,rank: 2,genre: "romance",summary: "main charater tries to get with every girl and dies",url:"https://upload.wikimedia.org/wikipedia/en/e/ed/SchoolDays.png"}];
+
+function addAnime() {
+
+	//gets the values from the text
+	var choicename = document.getElementById('nameChoice').value;
+    var choiceseason = document.getElementById('seasonChoice').value;
+    var choiceepisode = document.getElementById('episodeChoice').value;
+	var choicerank = document.getElementById('rankChoice').value;
+    var choicegenre = document.getElementById('genreChoice').value;
+    var choicesentence = document.getElementById('sentenceChoice').value;
+	var choiceurl = document.getElementById('urlChoice').value;
+	animeCollection.push({name: choicename,season: choiceseason,episode: choiceepisode,rank: choicerank,genre: choicegenre,sentence: choicesentence,url: choiceurl});
+	
+}
+function added(){
+	//var added = animeCollection.pop();
+	document.getElementById("name1").innerHTML = document.getElementById('nameChoice').value;
+	document.getElementById("seasons1").innerHTML = document.getElementById('seasonChoice').value;
+	document.getElementById("episodes1").innerHTML = document.getElementById('episodeChoice').value;
+	document.getElementById("rank1").innerHTML = document.getElementById('rankChoice').value;
+	document.getElementById("genre1").innerHTML = document.getElementById('genreChoice').value;
+	document.getElementById("sentence1").innerHTML = document.getElementById('sentenceChoice').value;
+	document.getElementById("picture").src = document.getElementById('urlChoice').value;
+}
+
+function top2(){
+	var anime = new Array();
+	anime = animeCollection.sort(comparable);
+	document.getElementById("number1").innerHTML = anime[0].name;
+	document.getElementById("picture1").src = anime[0].url;
+	
+	document.getElementById("number2").innerHTML = anime[1].name;
+	document.getElementById("picture2").src = anime[1].url
+}
+
+function random(){
+	var ran = Math.floor((Math.random() * animeCollection.length));
+
+	document.getElementById("randomname").innerHTML = animeCollection[ran].name;
+	document.getElementById("randomseason").innerHTML = animeCollection[ran].season;
+	document.getElementById("randomepisode").innerHTML = animeCollection[ran].episode;
+	document.getElementById("randomrank").innerHTML = animeCollection[ran].rank;
+	document.getElementById("randomgenre").innerHTML = animeCollection[ran].genre;
+	document.getElementById("randomsummary").innerHTML = animeCollection[ran].summary;
+	document.getElementById("randomurl").src = animeCollection[ran].url;
+}
+function comparable(a, b){
+	return b.rank - a.rank;
+}
+
+</script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".intro").show();
+	$(".added").hide();
+	$(".top2").hide();
+	$(".random").hide();
+	
+	$(".show1").click(function(){
+		$(".intro").show();
+		$(".added").hide();
+		$(".top2").hide();
+		$(".random").hide();
+	});
+	$(".show2").click(function(){
+		$(".top2").show();
+		$(".added").hide();
+		$(".intro").hide();
+		$(".random").hide();
+	});
+	$(".show3").click(function(){
+		$(".random").show();
+		$(".intro").hide();
+		$(".added").hide();
+		$(".top2").hide();
+	});
+	
+	$(".show5").click(function(){
+		$(".added").show();
+		$(".intro").hide();
+		$(".top2").hide();
+		$(".random").hide();
+	});
+
+});
+</script>
+</body>
+</html>
